@@ -2,9 +2,21 @@ import React from "react";
 import Image from "next/image";
 import type { Livestream } from "@/lib/types";
 
-function StreamCard({ stream }: { stream: Livestream }) {
+function StreamCard({
+  stream,
+  onClick,
+}: {
+  stream: Livestream;
+  onClick?: () => void;
+}) {
   return (
-    <div className="group w-[320px] flex-shrink-0 bg-[#181818] rounded-lg overflow-hidden shadow-md relative">
+    <div
+      className="group w-[320px] flex-shrink-0 bg-[#181818] rounded-lg overflow-hidden shadow-md relative cursor-pointer hover:ring-2 hover:ring-green-400 transition"
+      onClick={onClick}
+      tabIndex={0}
+      role="button"
+      aria-label={`Go to channel ${stream.channel?.slug}`}
+    >
       {/* Stream Thumbnail */}
       <div className="relative aspect-video">
         <Image

@@ -1,7 +1,11 @@
 import axios, { AxiosError } from "axios";
-import { BASE_URL } from "../constant";
+import { BASE_URL, BASE_URL2 } from "../constant";
+import cookies from "js-cookie";
+
 import {
   Category,
+  ChannelAllVideosResponse,
+  ChannelInfoResponse,
   getCategoryInfoFromNameResponse,
   getLivestreamsDataForCardResponse,
   getTopCategoriesResponse,
@@ -66,5 +70,69 @@ export async function getCategoryInfoFromName(categoryName: string) {
   } catch (error: any) {
     const err = error as AxiosError;
     return err.response?.data as getCategoryInfoFromNameResponse;
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------
+//||||||||||||||||||||||| get basic channel info and live or not  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//--------------------------------------------------------------------------------------------------------------
+
+export async function getBasicInfoOfChannel(channel_name: string) {
+  try {
+    const { data } = await axios.get<ChannelInfoResponse>(
+      `${BASE_URL2}/public/v1/channels?slug=${channel_name}`,
+      {
+        headers: {
+          Authorization: `Bearer ${
+            cookies.get("apeing_kick_authtoken") ||
+            "ZMU3ZMRLNGYTNMMXZS0ZMMJJLTG1YTATYTYXY2MWZTFLNTY5"
+          }`,
+        },
+      }
+    );
+    return data;
+  } catch (error: any) {
+    const err = error as AxiosError;
+    return err.response?.data as ChannelInfoResponse;
+  }
+}
+
+export async function getChannelAllVideo(channel_name: string) {
+  try {
+    const { data } = await axios.get<ChannelAllVideosResponse>(
+      `${BASE_URL}/api/v2/channels/${channel_name}/videos`,
+      {
+        headers: {
+          Authorization: `Bearer ${
+            cookies.get("apeing_kick_authtoken") ||
+            "ZMU3ZMRLNGYTNMMXZS0ZMMJJLTG1YTATYTYXY2MWZTFLNTY5"
+          }`,
+        },
+      }
+    );
+    return data;
+  } catch (error: any) {
+    const err = error as AxiosError;
+    return err.response?.data as ChannelAllVideosResponse;
+  }
+}
+
+export async function getAllCommentOfStream(channel_name: string) {
+  try {
+    const { data } = await axios.get<ChannelAllVideosResponse>(
+      `${BASE_URL}/api/v2/channels/${channel_name}/videos`,
+      {
+        headers: {
+          Authorization: `Bearer ${
+            cookies.get("apeing_kick_authtoken") ||
+            "ZMU3ZMRLNGYTNMMXZS0ZMMJJLTG1YTATYTYXY2MWZTFLNTY5"
+          }`,
+        },
+      }
+    );
+    return data;
+  } catch (error: any) {
+    const err = error as AxiosError;
+    return err.response?.data as ChannelAllVideosResponse;
   }
 }

@@ -46,7 +46,15 @@ function LivestreamsRow({
             <div className="flex gap-4 min-w-max">
               {streams &&
                 streams.map((stream: Livestream) => (
-                  <StreamCard key={stream.id} stream={stream} />
+                  <StreamCard
+                    key={stream.id}
+                    stream={stream}
+                    onClick={() => {
+                      if (stream.channel?.slug) {
+                        window.location.href = `/${stream.channel.slug}`;
+                      }
+                    }}
+                  />
                 ))}
             </div>
           </div>
