@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { BASE_URL } from "../constant";
 import {
   Category,
+  getCategoryInfoFromNameResponse,
   getLivestreamsDataForCardResponse,
   getTopCategoriesResponse,
 } from "../types";
@@ -39,6 +40,7 @@ export async function getTopCategories(): Promise<getTopCategoriesResponse> {
     return err.response?.data as getTopCategoriesResponse;
   }
 }
+
 export async function getLivestreamsDataForCard(
   category: string,
   limit = 14,
@@ -52,5 +54,17 @@ export async function getLivestreamsDataForCard(
   } catch (error: any) {
     const err = error as AxiosError;
     return err.response?.data as getLivestreamsDataForCardResponse;
+  }
+}
+
+export async function getCategoryInfoFromName(categoryName: string) {
+  try {
+    const { data } = await axios.get<getCategoryInfoFromNameResponse>(
+      `${BASE_URL}/api/v1/subcategories/${categoryName}`
+    );
+    return data;
+  } catch (error: any) {
+    const err = error as AxiosError;
+    return err.response?.data as getCategoryInfoFromNameResponse;
   }
 }

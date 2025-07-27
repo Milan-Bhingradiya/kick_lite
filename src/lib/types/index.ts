@@ -109,3 +109,18 @@ export interface getTopCategoriesResponse {
   banner: Banner;
   category: Category;
 }
+
+export interface getCategoryInfoFromNameResponse {
+  id: number;
+  category_id: number;
+  name: string;
+  slug: string;
+  tags: string[];
+  description: string | null;
+  deleted_at: string | null;
+  is_mature: boolean;
+  is_promoted: boolean;
+  viewers: number;
+  banner: Banner;
+  category: Category;
+}
