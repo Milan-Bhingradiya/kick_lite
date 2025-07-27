@@ -17,14 +17,14 @@ function TopCategories() {
     : [];
 
   return (
-    <div className="bg-[#0f0f0f] px-6 py-6">
+    <div className=" px-6 py-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-white text-xl font-bold">Top Categories</h2>
-          <button className="text-green-500 hover:text-green-400 font-medium text-sm">
+          {/* <button className="text-green-500 hover:text-green-400 font-medium text-sm">
             Show All
-          </button>
+          </button> */}
         </div>
 
         {/* Loading/Error States */}

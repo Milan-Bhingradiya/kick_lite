@@ -25,12 +25,12 @@ function Page() {
 
   if (isLoading) {
     return (
-      <div className="bg-gray-900 min-h-screen text-white">
+      <div className="bg-[#18181b] min-h-screen text-white">
         <div className="max-w-7xl mx-auto p-6">
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-700 rounded w-1/3 mb-6"></div>
-            <div className="h-96 bg-gray-700 rounded mb-6"></div>
-            <div className="h-20 bg-gray-700 rounded"></div>
+            <div className="h-8 bg-[#232329] rounded w-1/3 mb-6"></div>
+            <div className="h-96 bg-[#232329] rounded mb-6"></div>
+            <div className="h-20 bg-[#232329] rounded"></div>
           </div>
         </div>
       </div>
@@ -39,13 +39,13 @@ function Page() {
 
   if (isError) {
     return (
-      <div className="bg-gray-900 min-h-screen text-white flex items-center justify-center">
+      <div className="bg-[#18181b] min-h-screen text-white flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">😵</div>
           <h1 className="text-2xl font-bold mb-2">
             Oops! Something went wrong
           </h1>
-          <p className="text-gray-400">Error fetching channel data.</p>
+          <p className="text-[#222]">Error fetching channel data.</p>
         </div>
       </div>
     );
@@ -55,11 +55,11 @@ function Page() {
 
   if (!channel) {
     return (
-      <div className="bg-gray-900 min-h-screen text-white flex items-center justify-center">
+      <div className="bg-black min-h-screen text-white flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">🔍</div>
           <h1 className="text-2xl font-bold mb-2">Channel Not Found</h1>
-          <p className="text-gray-400">No channel found with that name.</p>
+          <p className="text-[#222]">No channel found with that name.</p>
         </div>
       </div>
     );
@@ -68,7 +68,7 @@ function Page() {
   const isLive = channel.stream?.is_live;
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <div className="bg-[#18181b] min-h-screen text-white">
       <div className="max-w-7xl mx-auto p-4 lg:p-6">
         {/* Channel Info Header */}
         <ChannelInfoCard channel={channel} />
@@ -83,11 +83,11 @@ function Page() {
             {isLive ? (
               <LiveStream slug_username={channel.slug} channel={channel} />
             ) : (
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-lg p-12 text-center border border-gray-700">
+              <div className="bg-gradient-to-br from-[#18181b] to-[#232329] rounded-xl shadow-lg p-12 text-center border border-[#232329]">
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-[#232329] rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-10 h-10 text-gray-500"
+                      className="w-10 h-10 text-[#222]"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -101,7 +101,7 @@ function Page() {
                   <h2 className="text-3xl font-bold mb-3 text-white">
                     Channel is Offline
                   </h2>
-                  <p className="text-gray-400 text-lg max-w-md mx-auto">
+                  <p className="text-[#222] text-lg max-w-md mx-auto">
                     {channel.slug} is not currently streaming. Check out their
                     past broadcasts below or follow for notifications!
                   </p>
@@ -110,7 +110,7 @@ function Page() {
                   <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
                     Follow Channel
                   </button>
-                  <button className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                  <button className="bg-[#232329] hover:bg-[#18181b] text-white px-6 py-2 rounded-lg font-medium transition-colors">
                     Enable Notifications
                   </button>
                 </div>
@@ -122,8 +122,8 @@ function Page() {
           {isLive && (
             <div className="xl:col-span-1">
               <div className="sticky top-6">
-                <div className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 h-[600px] flex flex-col">
-                  <div className="p-4 border-b border-gray-700">
+                <div className="bg-[#232329] rounded-xl shadow-lg border border-[#18181b] h-[600px] flex flex-col">
+                  <div className="p-4 border-b border-[#18181b]">
                     <h3 className="font-bold text-lg flex items-center gap-2">
                       <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
                       Live Chat
@@ -146,7 +146,7 @@ function Page() {
         <div className="mt-12">
           <div className="flex items-center gap-4 mb-6">
             <h2 className="text-3xl font-bold">Past Broadcasts</h2>
-            <div className="h-px bg-gray-700 flex-1"></div>
+            <div className="h-px bg-[#232329] flex-1"></div>
           </div>
           <OldVideos channelName={channel_name} />
         </div>

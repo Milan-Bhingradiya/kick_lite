@@ -46,14 +46,14 @@ export default function Navbar() {
             {/*   <span className="text-white font-bold text-xl">Kick</span> */}
           </a>
           {/* Navigation Links - Hidden on mobile */}
-          <div className="hidden lg:flex gap-6 ml-6">
+          {/* <div className="hidden lg:flex gap-6 ml-6">
             <a href="#" className="text-white hover:text-green-500 font-medium">
               Following
             </a>
             <a href="#" className="text-white hover:text-green-500 font-medium">
               Browse
             </a>
-          </div>
+          </div> */}
         </div>
         {/* Center: Search */}
         <div className="flex-1 flex justify-center px-4">
@@ -77,14 +77,14 @@ export default function Navbar() {
           </div>
         </div>
         {/* Right: Auth Buttons */}
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <button className="bg-[#232326] text-white px-4 py-2 rounded-full hover:bg-[#2ecc40] hover:text-black transition font-medium">
             Sign Up
           </button>
           <button className="bg-green-500 text-black px-4 py-2 rounded-full hover:bg-green-600 transition font-medium">
             Log In
           </button>
-        </div>
+        </div> */}
       </nav>
 
       {/* Sidebar Component */}
