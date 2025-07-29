@@ -131,7 +131,7 @@ function Page() {
                   </div>
                   <div className="flex-1 overflow-hidden">
                     <iframe
-                      src={`https://www.kick.com/embed/chat/${channel.slug}`}
+                      src={`https://www.kick.com/${channel.slug}`}
                       className="w-full h-full border-0"
                       title="Chat"
                     />
